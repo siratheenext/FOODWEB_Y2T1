@@ -1,0 +1,60 @@
+.row {
+    margin: 10px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    width: 120px;
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background-color: #333;
+    color: #fff;
+    margin: 20px;
+}
+
+.btn-save {
+    background-color: #d32f2f;
+    color: #fff;
+    margin: 20px;
+}
+
+.buttons{
+    margin: 50px;
+}
+
+body{
+    background-color: #D9D9D9;
+}
+
+form {
+    background-color: white;
+    border-radius: 20px;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    background-color: #fff;
+  }
+
+.logo{
+    margin: 20px;
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/style/Home.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header">
+    <script>
+      fetch('/navbar')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header').innerHTML = data; // ใช้ querySelector เพื่อเลือก element เดียว
+        })
+        .catch(error => {
+          console.error('Error loading navbar:', error);
+        });
+    </script>
+    </div>
+    <!-- Main -->
+    <main>
+        <!-- Promotion Section -->
+        <section class="promotion">
+            <div class="promotion-slider">
+                <div class="promotion-slide">
+                    <img src="./picture/แถบหน้าโฮม.jpg" alt="">
+                    <div class="promotion-text">
+                        <h2>KOREAN FRIED CHECKEN BOX</h2>
+                        <p>ไก่ทอดซอสเกาหลีรสกระเทียม</p>
+                        <span class="price">159.-</span>
+                        <button class="order-btn">ORDER NOW</button>
+                    </div>
+                </div>
+                <div class="promotion-slide">
+                    <img src="./picture/แถบหน้าโฮม.jpg" alt="">
+                    <div class="promotion-text">
+                        <h2>KOREAN FRIED CHECKEN BOX</h2>
+                        <p>ไก่ทอดซอสเกาหลีรสกระเทียม</p>
+                        <span class="price">159.-</span>
+                        <button class="order-btn">ORDER NOW</button>
+                    </div>
+                </div>
+                <div class="promotion-slide">
+                    <img src="./picture/แถบหน้าโฮม.jpg" alt="">
+                    <div class="promotion-text">
+                        <h2>KOREAN FRIED CHECKEN BOX</h2>
+                        <p>ไก่ทอดซอสเกาหลีรสกระเทียม</p>
+                        <span class="price">159.-</span>
+                        <button class="order-btn">ORDER NOW</button>
+                    </div>
+                </div>
+                <div class="promotion-slide">
+                    <img src="./picture/แถบหน้าโฮม.jpg" alt="">
+                    <div class="promotion-text">
+                        <h2>KOREAN FRIED CHICKEN RICE</h2>
+                        <span class="price">49.-</span>
+                        <button class="order-btn">ORDER NOW</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+
+        <!-- Chicken Box Sets Section -->
+        <section class="chicken-box-sets">
+            <div class="box-set">
+                <img src="" alt="">
+                <div class="box-set-info1">
+                    <h3>CHICKEN BOX SET B</h3>
+                    <p>chicken box 1 ชิ้น อิ่มอร่อย ให้เลือกตามที่ต้องการ (เลือกรสชาติได้) 1 กล่อง ซอสเลือกให้ใหม่ 1 ถ้วย และเฟรนช์ฟราย 1 กล่อง ในราคา</p>
+                    <span class="price">229.-</span>
+                </div>
+            </div>
+            <div class="box-set">
+                <img src="" alt="">
+                <div class="box-set-info2">
+                    <h3>CHICKEN BOX SET A</h3>
+                    <p>chicken box อิ่มจุใจ ให้เลือกตามที่ต้องการ เลือกได้ 2 กล่อง พร้อมซอสเลือกใหม่ให้ 2 ถ้วย ในราคา</p>
+                    <span class="price">439.-</span>
+                </div>
+            </div>
+            <a href="Promotion.html" class="more-button">More</a>
+    <main>
+        <section id="about-us-container">
+            <!-- About Us content จะโหลดมาแสดงในส่วนนี้ -->
+        </section>
+        </section>
+            <!-- Chicken Menu -->
+            <section id="chicken-menu" class="menu-section active">
+                <h1>Chicken</h1>
+                <div class="menu-grid">
+                    <div class="menu-item">Chicken Item 1</div>
+                    <div class="menu-item">Chicken Item 2</div>
+                    <div class="menu-item">Chicken Item 3</div>
+                </div>
+                <button class="more-button" data-target="snacks-menu">More</button>
+            </section>
+        
+            <!-- Snacks Menu -->
+            <section id="snacks-menu" class="menu-section">
+                <h1>Snacks</h1>
+                <div class="menu-grid">
+                    <div class="menu-item">Snack Item 1</div>
+                    <div class="menu-item">Snack Item 2</div>
+                    <div class="menu-item">Snack Item 3</div>
+                </div>
+                <button class="more-button" data-target="drinks-menu">More</button>
+            </section>
+        
+            <!-- Drinks Menu -->
+            <section id="drinks-menu" class="menu-section">
+                <h1>Drinks</h1>
+                <div class="menu-grid">
+                    <div class="menu-item">Drink Item 1</div>
+                    <div class="menu-item">Drink Item 2</div>
+                    <div class="menu-item">Drink Item 3</div>
+                </div>
+                <button class="more-button" data-target="toppings-menu">More</button>
+            </section>
+        
+            <!-- Toppings Menu -->
+            <section id="toppings-menu" class="menu-section">
+                <h1>Toppings</h1>
+                <div class="menu-grid">
+                    <div class="menu-item">Topping Item 1</div>
+                    <div class="menu-item">Topping Item 2</div>
+                    <div class="menu-item">Topping Item 3</div>
+                </div>
+                <button class="more-button" data-target="chicken-menu">Back to Chicken</button>
+            </section>
+        </main>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-brand">
+            <h2>CHICKNEXT'S KEN</h2>
+            <p>NextNext Company</p>
+        </div>
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <ul>
+                <li><span class="icon">✉️</span> Sirathee Klinbua</li>
+                <li><span class="icon">✉️</span> Chawanwit Khuanphatkul</li>
+                <li><span class="icon">✉️</span> Kemisara Anankamongkol</li>
+                <li><span class="icon">✉️</span> Thanyarat Wuthiroongreungsakul</li>
+            </ul>
+        </div>
+        <div class="footer-newsletter">
+            <h3>Subscribe to Our News</h3>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // สำหรับส่วนของ Promotion Slides
+            const slides = document.querySelectorAll('.promotion-slide');
+            const dots = document.querySelectorAll('.dot');
+            let currentIndex = 0;
+    
+            if (slides.length > 0 && dots.length > 0) {
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.style.transform = `translateX(${(i - index) * 100}%)`;
+                    });
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+    
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => {
+                        currentIndex = i;
+                        showSlide(currentIndex);
+                    });
+                });
+    
+                showSlide(currentIndex);
+            }
+    
+            // สำหรับส่วนของการเลื่อนเมนู (More Button)
+            const buttons = document.querySelectorAll('.more-button');
+    
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const sections = document.querySelectorAll('.menu-section');
+    
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+    
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

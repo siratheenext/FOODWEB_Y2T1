@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotion</title>
+    <link rel="stylesheet" href="style/promotion.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header">
+        <script>
+          fetch('/navbar')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('header').innerHTML = data; // ใช้ querySelector เพื่อเลือก element เดียว
+            })
+            .catch(error => {
+              console.error('Error loading navbar:', error);
+            });
+        </script>
+        </div>
+
+    <!-- Main Content -->
+    <main class="promotion-container">
+        <!-- Chicken Box Set A -->
+        <div class="promotion-box">
+            <div class="promotion-image">
+                <img src="style/picture/IMG_6155_3.png" alt="Chicken Box Set A">
+            </div>
+            <div class="promotion-details">
+                <h2>CHICKEN BOX SET A</h2>
+                <p>Chicken box อิ่มจุใจ ไก่ทอดเกาหลีรสดั้งเดิม 2 กล่อง พร้อมซอสเลือกใหม่ได้ 2 ชิ้น ในราคา</p>
+                <p class="price">439.-</p>
+            </div>
+        </div>
+
+        <!-- Chicken Box Set B -->
+        <div class="promotion-box">
+            <div class="promotion-image">
+                <img src="style/picture/IMG_6155_3.png" alt="Chicken Box Set B">
+            </div>
+            <div class="promotion-details">
+                <h2>CHICKEN BOX SET B</h2>
+                <p>Chicken box 1 ชิ้น อิ่มอร่อย ไก่ทอดเกาหลีรสกระเทียม 1 กล่อง ซอสเลือกใหม่ได้ 1 ถ้วย และเฟรนช์ฟราย ในราคา</p>
+                <p class="price">229.-</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

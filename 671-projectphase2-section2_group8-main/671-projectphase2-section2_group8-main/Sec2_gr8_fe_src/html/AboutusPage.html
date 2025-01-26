@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHICNEXTKEN'S About us</title>
+    <link rel="stylesheet" href="/style/AboutusPage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+<body>
+    <div id="header">
+        <script>
+          fetch('/navbar')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('header').innerHTML = data; // ใช้ querySelector เพื่อเลือก element เดียว
+            })
+            .catch(error => {
+              console.error('Error loading navbar:', error);
+            });
+        </script>
+        </div>
+    <main>
+        <div class="textCompany" id="same">
+            " <br><br>
+            Chicknext’s ken is a South Korean-based international fried chicken restaurant franchise. According to the company,<br>
+            Chicknext’s ken is a Korean word meaning "My Hometown". Chicknext’s ken is straight mukbang material. Muk-what? <br>
+            Muk-order-up-and-stuff-your-face deliciousness. That’s what! So, you in? It’s time to Crunch Out Loud! Our sauces <br>
+            come straight from our global kitchen in South Korea. They’re legit delicious.<br><br>
+            "
+        </div>
+
+        <div class="team" id="same">
+            <p id="teamTitle">Team Member</pp>
+        </div>
+
+        <div class="member" id="same">
+            <div id="member1">
+                <img src="/style/picture/mem01.jpg" alt="Member01">
+                <h3 class="memberDetail">Sirathee<br>Klinbua</h3>
+                <p>Chief Executive Officer</p>
+                <a href="https://www.instagram.com/nextsirathee/profilecard/?igsh=aWY3MngyZWFjNXoy" id="mem">Instagram</a>
+            </div>
+
+            <div id="member2" id="same">
+                <img src="/style/picture/mem02.jpg" alt="Member02">
+                <h3 class="memberDetail">Chawanwit<br>Khuanphatkul</h3>
+                <p>Personnel Manager</p>
+                <a href="https://www.instagram.com/n3w0705_/profilecard/?igsh=N3pxanNzczB6dmJt" id="mem">Instagram</a>
+            </div>
+
+            <div id="member3" id="same">
+                <img src="/style/picture/mem03.jpg" alt="Member03">
+                <h3 class="memberDetail">Kemisara<br>Anankamongkol</h3>
+                <p>Accounting Manager</p>
+                <a href="https://www.instagram.com/dewmsr/profilecard/?igsh=dXc4N2ExZjJzdHZr" id="mem">Instagram</a>
+            </div>
+
+            <div id="member4" id="same">
+                <img src="/style/picture/mem04.jpg" alt="Member04">
+                <h4 class="memberDetail">Thanyarat<br>Wuthiroongreungsakul</h4>
+                <p>Marketing Manager</p>
+                <a href="https://www.instagram.com/heang_kung/profilecard/?igsh=MTR0MWc4aHo1MmgxNg==" id="mem">Instagram</a>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

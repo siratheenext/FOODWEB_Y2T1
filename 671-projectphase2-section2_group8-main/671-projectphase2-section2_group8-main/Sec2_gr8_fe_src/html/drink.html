@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drink</title>
+    <link rel="stylesheet" href="/style/menu.css">
+</head>
+<body>
+    <div id="header">
+        <script>
+          fetch('/navbar')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('header').innerHTML = data; // ใช้ querySelector เพื่อเลือก element เดียว
+            })
+            .catch(error => {
+              console.error('Error loading navbar:', error);
+            });
+        </script>
+        </div>
+    <main>
+        <div class="menu-container">
+            <aside class="sidebar">
+                <ul class="category-list">
+                    <li class="category-item"><a href="/menu">CHICKEN</a></li>
+                    <li class="category-item"><a href="/snack">SNACKS & DESSERTS</a></li>
+                    <li class="category-item"><a href="/topping">TOPPING</a></li>
+                    <li class="category-item active"><a href="/drink">DRINK</a></li>
+                </ul>
+            </aside>
+
+            <section class="menu-content">
+                <h1>DRINKS</h1>
+                <div class="menu-grid" id="menu-grid"></div>
+            </section>
+        </div>
+    </main>
+</body>
+<script>
+    const fetchDrinks = async () => {
+        try {
+            const response = await fetch('http://localhost:3031/menu_data/category/Drink'); // เปลี่ยน URL ให้ตรงกับเซิร์ฟเวอร์
+            const drinks = await response.json();
+
+            const menuGrid = document.getElementById('menu-grid');
+
+            drinks.forEach(drink => {
+                const item = document.createElement('div');
+                item.className = 'menu-item';
+                item.innerHTML = `
+                    <a href="/description?foodid=${drink.foodid}">
+                    <img src="${drink.imageUrl}" alt="${drink.foodname}">
+                    <h2>${drink.foodname}</h2>
+                    <p>${drink.price}.-</p>
+                    </a>
+                `;
+                menuGrid.appendChild(item);
+            });
+        } catch (error) {
+            console.error('Error fetching drinks:', error);
+        }
+    };
+
+    // เรียกใช้เมื่อโหลดหน้าเว็บ
+    document.addEventListener('DOMContentLoaded', fetchDrinks);
+</script>
+</html>

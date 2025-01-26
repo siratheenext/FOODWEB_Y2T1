@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slide Navbar</title>
+	<link rel="stylesheet" href="/style/LoginPage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div id="header">
+        <script>
+          fetch('/navbar')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('header').innerHTML = data; // ใช้ querySelector เพื่อเลือก element เดียว
+            })
+            .catch(error => {
+              console.error('Error loading navbar:', error);
+            });
+        </script>
+        </div>
+
+    <div class="login">
+        <form action="http://localhost:3031/sign-in" method="POST">
+
+                <label for="chk" aria-hidden="true">Administrator</label>
+                <input type="text" name="username" id="username" placeholder="User name" required="">
+                <input type="password" name="password" id="password" placeholder="Password" required="">
+
+                <div class="recaptcha-container">
+                    <div class="g-recaptcha" data-sitekey="6Ldf6YsqAAAAAGiVxajPaI-HQmPDgtmPyECu-HTX" 
+                    ></div>
+                </div>
+
+                <button type="submit" id="log-in">Login</button>
+        </form>
+    </div>
+
+<script>
+
+document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const username = document.querySelector("#username").value;
+    const password = document.querySelector("#password").value;
+    const recaptcha = grecaptcha.getResponse();
+
+    if (!username || !password) {
+        swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please complete all fields",
+        });
+        return;
+    }
+
+    if (!recaptcha) {
+        swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please complete the reCAPTCHA.",
+        });
+        return;
+    }
+
+    try {
+        const response = await fetch("http://localhost:3031/sign-in", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password, recaptcha }),
+            credentials: "include", //ใส่ให้รับคุกกี้ได้
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            swal.fire({
+                title: "Success!",
+                text: "Login successful!",
+                icon: "success",
+            });
+
+            await delay(2000); //ทำอันนี้ก่อนแล้วค่อยทำโค้ดข้างล่าง
+            window.location.href = "/admin";
+
+        } else {
+            swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: result.error || "Login failed.",
+            });
+        }
+    } catch (err) {
+        console.error("Error during login:", err);
+        swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "An error occurred. Please try again.",
+        });
+    }
+});
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+        
+</script>
+
+</body>
+
+</html>

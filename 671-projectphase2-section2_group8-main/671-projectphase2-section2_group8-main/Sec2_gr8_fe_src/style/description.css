@@ -1,0 +1,139 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+fieldset{
+    background-color:#F9E8CF;
+    border-radius: 15px;
+    border-width: 0px;
+    padding: 20px;
+    color: black;
+    width: 50%;
+    display: block;
+    justify-self: center;
+
+}
+#subtext1{
+    color: #f7e4c6;
+    background-color:#C60C00;
+    border-width: 0px;
+    border-radius: 20px;
+    padding-block: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#subtext2{
+    color: #f7e4c6;
+    background-color:#C60C00;
+    border-width: 0px;
+    border-radius: 20px;
+    padding-block: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 20px;
+}
+body{
+    background-color: #121212;
+}
+.back{
+     width: 50px;
+    height: 50px; 
+    margin-left: 150px; 
+    margin-top: 100px;
+    
+}
+#image{
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin-right: 20px;
+}
+#name{
+    text-align: left;
+    font-size:40px;
+    margin-top: 50px;
+
+}
+#description{
+    text-align: left;
+    font-size:large;
+    margin-top: 10px;
+}
+#price{
+    text-align: left;
+    margin-top: 10px;
+}
+#amount{
+    color: #C60C00;
+    width: 70px;
+    margin-top: 10px;
+}
+#text{
+    margin-left: 20px;
+    width: 180px;
+}
+#buttext{
+    width: 18px;
+    height: 18px;
+    
+}
+/* nav bar */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+      
+    body {
+    font-family: Arial, sans-serif;
+    color: #f7e4c6;
+    background-color: #121212;
+    }
+      
+    .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d80000; 
+    padding: 10px 20px;
+    }
+      
+    .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f7e4c6;
+    }
+      
+    .navbar a {
+    margin: 0 10px;
+    color: #f7e4c6;
+    text-decoration: none;
+    }
+      
+    .header-right {
+    display: flex;
+    align-items: center;
+    }
+      
+    .search-icon img {
+    width: 24px; 
+    height: 24px;
+    margin-right: 10px; 
+    cursor: pointer;
+    }
+      
+    .sign-in {
+    padding: 10px 20px;
+    background-color: #f7e4c6; 
+    color: #d80000; 
+    border: 2px solid #f7e4c6; 
+    border-radius: 30px; 
+    font-weight: bold;
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .sign-in:hover {
+    background-color: #d80000; 
+    color: #f7e4c6; 
+    }

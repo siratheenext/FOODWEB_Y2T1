@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChickNext's Ken</title>
+    <link rel="stylesheet" href="style/admin.css">
+</head>
+<body>
+<div class="wrapper" id="sidebar_admin">
+        <script>
+        fetch('/sidebar')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar_admin').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading navbar:', error);
+            });
+        </script>
+</div>
+<div class="main_content">
+    <div class="top-bar">
+        <input type="text" placeholder="Search">
+    </div>
+    <h1 class="page-name">Menu</h1>
+    <button class="add" onclick="addnewmenu()"><img src="style/picture/Plus.png" class="img img-plus"></button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Food</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="menuTableBody">
+            <!-- Food data will be populated here dynamically -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+// Fetch the food data and display it in the table
+fetch('http://localhost:3031/menu_data')
+    .then(response => response.json())
+    .then(data => {
+        const tableBody = document.getElementById('menuTableBody');
+        data.forEach(food => {
+            const row = document.createElement('tr');
+
+            row.id = `menu-item-${food.foodid}`; // Add unique id for each row
+
+            row.innerHTML = `
+                <td>${food.foodid}</td>
+                <td><img src="${food.imageUrl}" alt="Food Image" class="img-thumbnail" style="width: 50px; height: 50px;"></td>
+                <td>${food.foodname}</td>
+                <td>${food.price}</td>
+                <td>${food.category}</td>
+                <td>
+                    <button class="edit" onclick="editMenuItem(${food.foodid})"><img src="style/picture/Edit.png" class="img img-edit"></button>
+                    <button class="delete" onclick="deleteMenuItem(${food.foodid})"><img src="style/picture/Multiply.png" class="img img-x"></button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching food data:', error);
+    });
+
+// Function to handle adding a new menu item
+function addnewmenu() {
+    location.replace(`/add_menu`);
+}
+
+// Function to delete a menu item
+function deleteMenuItem(foodid) {
+    // แสดงกล่องยืนยันการลบ
+    if (confirm('Are you sure you want to delete this menu item?')) {
+        fetch(`http://localhost:3031/delete_menu/${foodid}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to delete menu item');
+            }
+            alert('Menu item deleted successfully');
+            location.reload(); // รีเฟรชหน้าเพื่ออัปเดตข้อมูล
+        })
+        .catch(error => {
+            console.error('Error deleting menu item:', error);
+            alert('Error deleting menu item');
+        });
+    }
+}
+
+function editMenuItem(foodid) {
+    location.href = `/edit_menu?foodid=${foodid}`; // ส่ง foodid ไปยัง edit_menu.html
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin-top: 150px;
+    font-size: xxx-large;
+    text-align: center;
+    color: #F9E8CF;
+}
+
+#sb {
+    background-color: #F9E8CF;
+    border-width: 0px;
+    width: 90%;
+    box-sizing: border-box;
+    height: 60%;
+}
+
+body {
+    background-color: #121212;
+}
+
+.first {
+    background-color: #F9E8CF;
+    border-radius: 10px;
+    border-width: 0px;
+    height: 50px;
+    width: 50%;
+    justify-self: center;
+    margin-top: 10px;
+}
+
+.searchbutton {
+    width: 29px;
+    height: 29px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    justify-items: left;
+}
+
+.searchlist {
+    width: 29px;
+    height: 29px;
+    display: inline-block;
+    justify-items: right;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#cat {
+    background-color: #C60C00;
+    color: #F9E8CF;
+    font-size: 19px;
+    border-radius: 7px;
+}
+
+.category .price .promotion{
+    margin-left: 20px;
+}
+
+label {
+    font-size: 20px;
+    color: black;
+}
+
+
+.sec {
+    border-width: 0px;
+    margin: 20px;
+}
+
+/* Initially hide the .dropsearch element */
+.dropsearch {
+    display: none;
+    background-color: #F9E8CF;
+    border-radius: 10px;
+    border-width: 0px;
+    height: 180px;
+    width:50%; 
+    justify-self: center; 
+    padding-top: 20px ;
+    padding-bottom: 10px;
+    animation: slide-down 0.3s ease;
+}
+
+.dropsearch.open {
+    display: block;
+}
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* nav bar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #f7e4c6;
+    background-color: #121212;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d80000;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f7e4c6;
+}
+
+.navbar a {
+    margin: 0 10px;
+    color: #f7e4c6;
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-icon img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.sign-in {
+    padding: 10px 20px;
+    background-color: #f7e4c6;
+    color: #d80000;
+    border: 2px solid #f7e4c6;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sign-in:hover {
+    background-color: #d80000;
+    color: #f7e4c6;
+}
+
+/* CSS สำหรับ product-card ใน search.html */
+.productlist {
+    display: flex;
+    flex-wrap: wrap;  /* Allow the items to wrap to the next row when necessary */
+    gap: 20px;  /* Space between the cards */
+    justify-content: flex-start;  /* Align items to the left (optional) */
+}
+
+.product-card {
+    background-color: #f7e4c6;
+    border: 2px solid #d80000;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    color: #000;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+    width: 250px;
+    margin-left: 100px;
+}
+
+.product-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.product-card .product-description {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.product-card .product-price {
+    font-size: 1.5em;
+    color: #d80000;
+    font-weight: bold;
+}
+
+
+a {
+    text-decoration: none;
+}

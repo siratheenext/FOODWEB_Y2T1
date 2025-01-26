@@ -1,0 +1,77 @@
+/* -------------- nav -------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+      
+    body {
+    font-family: 'Jost', 'sans-serif';
+    color: #f7e4c6;
+    background-color: #121212;
+}
+
+
+/* -------------- Login -------------- */
+.login{
+	display: flex;
+	justify-content: center;
+	margin: 8% 0 8% 0;
+}
+
+form{
+	width: 20%;
+	height: 40%;
+    background-color: #F9E8CF;
+    border-radius: 5%;
+    padding: 2%;
+}
+
+label{
+	color: #121212;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+input{
+	width: 100%;
+	height: 20px;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 12px;
+	border-color: #121212;
+    border-width: 1px;
+	border-radius: 5px;
+}
+
+#log-in{
+	width: 60%;
+	height: 40px;
+	margin: 2% auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #C60C00;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 30px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#log-in:hover{
+	background: #121212;
+}
+
+.g-recaptcha{
+    transform: scale(0.66);
+    transform-origin: 0 0;
+    justify-content: center;
+}
+

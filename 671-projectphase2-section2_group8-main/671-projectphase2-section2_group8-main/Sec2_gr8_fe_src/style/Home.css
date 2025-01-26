@@ -1,0 +1,356 @@
+/* ===========================================================
+   RESET STYLES
+   =========================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* ===========================================================
+   HEADER STYLES
+   =========================================================== */
+/* .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d80000; 
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f7e4c6;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #f7e4c6;
+}
+
+.navbar a {
+    margin: 0 10px;
+    color: #f7e4c6;
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-icon img {
+    width: 24px; 
+    height: 24px;
+    margin-right: 10px; 
+    cursor: pointer;
+}
+
+.sign-in {
+    padding: 10px 20px;
+    background-color: #f7e4c6; 
+    color: #d80000; 
+    border: 2px solid #f7e4c6; 
+    border-radius: 30px; 
+    font-weight: bold;
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sign-in:hover {
+    background-color: #d80000; 
+    color: #f7e4c6; 
+} */
+
+/* ===========================================================
+   PROMOTION SECTION
+   =========================================================== */
+.promotion {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+}
+
+.promotion-slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.promotion-slide {
+    flex: 1 0 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.promotion-slide img {
+    width: 555px;
+    margin-bottom: 15px;
+}
+
+.promotion-text h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.promotion-text p {
+    font-size: 2.0em;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 1.6em;
+    color: #f7e4c6;
+    font-weight: bold;
+}
+
+.order-btn {
+    padding: 10px 20px;
+    background-color: #d80000;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #f7e4c6;
+    color: #d80000;
+}
+
+/* Slider Dots */
+.slider-dots {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #d80000;
+}
+
+/* ===========================================================
+   CHICKEN BOX SETS
+   =========================================================== */
+.chicken-box-sets {
+    background-color: #d80000;
+    padding: 70px 100px;
+    background-image: url('./picture/Promotion.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.box-set-info1 {
+    position: relative;
+    padding: 20px; 
+    border-radius: 10px; 
+    color: #f5e6d3; 
+    text-align: right; 
+    z-index: 1; 
+    left: -230px;
+}
+
+.box-set-info2 {
+    position: relative; 
+    padding: 70px; 
+    border-radius: 10px; 
+    color: #f5e6d3; 
+    text-align: left; 
+    z-index: 1; 
+    right: -400px;
+}
+
+/* ===========================================================
+   BUTTON STYLES
+   =========================================================== */
+.more-button {
+    display: block;
+    background-color: #f5e6d3;
+    color: #e60012;
+    border: 2px solid #c52c21;
+    border-radius: 20px;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 20px auto; /* ทำให้ปุ่มอยู่กึ่งกลาง */
+    width: 200px; /* กำหนดขนาดปุ่มให้คงที่ */
+    text-decoration: none;
+}
+
+.more-button:hover {
+    background-color: #e60012;
+    color: #f5e6d3;
+}
+
+/* ===========================================================
+   MENU SECTIONS
+   =========================================================== */
+.menu-section {
+    display: none;
+    background-image: url(./picture/Frame.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #f7e4c6;
+    padding: 40px 0;
+    font-weight: bold;
+    text-transform: uppercase
+}
+
+.menu-section.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Menu Item */
+.menu-item {
+    background-color: #f7e4c6;
+    border: 2px solid #d80000;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    color: #000;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 200px;
+    width: 500px;
+    margin-left: 100px;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.menu-item h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.menu-item p {
+    font-size: 1.5em;
+    color: #d80000;
+    font-weight: bold;
+}
+
+/* ===========================================================
+   FOOTER STYLES
+   =========================================================== */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    background-color: #D60000;
+    color: #f5e6d3;
+}
+
+.footer-brand {
+    text-align: left;
+}
+
+.footer-brand h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.footer-brand p {
+    font-size: 14px;
+    color: #f5e6d3;
+}
+
+.footer-contact {
+    text-align: left;
+}
+
+.footer-contact h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-contact .icon {
+    margin-right: 8px;
+}
+
+.footer-newsletter {
+    text-align: left;
+}
+
+.footer-newsletter h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.newsletter-form {
+    display: flex;
+    align-items: center;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+.newsletter-form button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #000;
+    color: #f5e6d3;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}

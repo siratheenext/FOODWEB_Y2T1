@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Description</title>
+    <link rel="stylesheet" href="style/description.css" />
+</head>
+
+<body>
+    <div id="header">
+        <script>
+          fetch('/navbar')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('header').innerHTML = data; 
+            })
+            .catch(error => {
+              console.error('Error loading navbar:', error);
+            });
+        </script>
+        </div>
+    
+    <main>
+        <div class="backbut">
+            <input class="back" src="/style/picture/Back To.png" type="image" value="Go" onclick="goBack()" />
+        </div>
+        <div class="fielddes">
+            <fieldset>
+                <img id="image" src="/style/picture/IMG_6155 3.png" alt="Product Image" />
+                <div class="infor">
+                    <h1 id="name">Food Name</h1>
+                    <h5 id="des">Description</h5>
+                    <h3 id="price">000000</h3>
+                    <input id="amount" type="number" placeholder="Amount" />
+                    <input type="text" name="texttoshop" id="text" placeholder="Text to Shop" /><br /><br /><br />
+                    <button id="subtext1" type="submit">ADD TO CART</button>
+                    <button id="subtext2" type="submit">BUY NOW</button>
+                </div>
+            </fieldset>
+        </div>
+    </main>
+
+    <script>
+    // ดึง productId จาก query parameter
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get('foodid'); // รับค่า foodid จาก URL
+
+    if (productId) {
+        // Fetch ข้อมูลผลิตภัณฑ์จาก API
+        fetch(`http://localhost:3031/menu_data/${productId}`) // แก้ไข URL ตาม backend
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch product data');
+                }
+                return response.json();
+            })
+            .then(product => {
+                // แสดงข้อมูลในหน้า description.html
+                document.getElementById('image').src = product.imageUrl || '/style/picture/default-image.png';
+                document.getElementById('name').textContent = product.foodname || 'No Name';
+                document.getElementById('des').textContent = product.detail || 'No Description';
+                document.getElementById('price').textContent = `฿${product.price || 'N/A'}`;
+            })
+            .catch(error => {
+                console.error('Error loading product:', error);
+                document.querySelector('.fielddes').innerHTML = `<p>Failed to load product details.</p>`;
+            });
+    } else {
+        document.querySelector('.fielddes').innerHTML = `<p>Product ID not found.</p>`;
+    }
+
+    function goBack() {
+        window.history.back(); // ย้อนกลับไปหน้าที่ผ่านมา
+    }
+    </script>
+</body>
+</html>

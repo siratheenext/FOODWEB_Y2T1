@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search</title>
+    <link rel="stylesheet" href="style/search.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="header">
+        <script>
+            fetch('/navbar')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading navbar:', error);
+                });
+        </script>
+    </div>
+
+    <!-- Search Section -->
+    <h1>SEARCH</h1>
+    <div class="menusearch">
+        <form>
+            <fieldset class="first">
+                <input class="searchbutton" src="/style/picture/Search.png" type="image" alt="Search Button" onclick="performSearch(event)" />
+                <input class="searchbox" id="sb" name="sb" type="text" />
+                <input class="searchlist" src="/style/picture/Slider.png" type="image" alt="Filter Options" />
+            </fieldset>
+        </form>
+    </div>
+    <br>
+
+    <!-- Filters -->
+    <div class="dropsearch" style="display: none;">
+        <fieldset class="sec">
+            <label for="cat" class="category">CATEGORY:</label>
+            <select name="cat" id="cat">
+                <option value="None">None</option>
+                <option value="Chicken">CHICKEN</option>
+                <option value="Snack&Desserts">SNACK & DESSERT</option>
+                <option value="Topping">TOPPING</option>
+                <option value="Drink">DRINKS</option>
+            </select><br><br>
+            <section class="price">
+                <label for="pri">PRICE : </label>
+                <input id='pri1' name='pri' type='radio' value="less than 50฿">
+                <label for="pri1">less than 50฿</label>
+                <input id='pri2' name='pri' type='radio' value="50฿ - 100฿">
+                <label for="pri2">50฿ - 100฿</label>
+                <input id='pri3' name='pri' type='radio' value="more than 100฿">
+                <label for="pri3">more than 100฿</label><br><br>
+            </section>
+            <label for="pro" class="promotion">PROMOTION:</label>
+            <input type="checkbox" id="pro" name="pro"><br>
+        </fieldset>
+    </div>
+
+    <main>
+        <section class="productlist" id="searchresult"></section>
+    </main>
+
+    <script>
+        // ฟังก์ชันเปิด/ปิดค้นหาแบบละเอียด
+        document.querySelector('.searchlist').addEventListener('click', (e) => {
+            e.preventDefault();
+            const dropsearch = document.querySelector('.dropsearch');
+            dropsearch.style.display = dropsearch.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // ฟังก์ชันการค้นหา
+        function performSearch(e) {
+    e.preventDefault();  // ป้องกันไม่ให้ฟอร์มถูก submit และหน้าไม่รีเฟรช
+
+    const query = document.getElementById('sb').value.trim().toLowerCase();
+    const category = document.getElementById('cat').value;
+    const price = document.querySelector('input[name="pri"]:checked')?.value || '';
+    const promotion = document.getElementById('pro').checked ? 'true' : 'false';
+
+    const url = new URL('http://localhost:3031/products');
+    const params = {};
+
+    if (query) params.query = query;
+    if (category && category !== "None") params.category = category;
+    if (price) params.price = price;
+    if (promotion !== 'false') params.promotion = promotion;
+
+    Object.keys(params).forEach(key => {
+        url.searchParams.append(key, params[key]);
+    });
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to fetch products');
+            return response.json();
+        })
+        .then(data => {
+            updateProductGrid('searchresult', data);
+        })
+        .catch(err => {
+            console.error('Error fetching products:', err);
+        });
+}
+
+        // ฟังก์ชันแสดงผลสินค้า
+        function updateProductGrid(sectionId, products) {
+            const container = document.getElementById(sectionId);
+            container.innerHTML = '';
+
+            if (products.length === 0) {
+                container.innerHTML = '<p>No products found.</p>';
+                return;
+            }
+
+            products.forEach(product => {
+                const productCard = `
+                <a href="/description?foodid=${product.foodid}" class="product-card">
+                <img src="${product.imageUrl}" alt="${product.foodname}">
+                <p class="product-description">${product.foodname}</p>
+                <p class="product-price">฿${product.price}</p>
+                </a>`;
+                container.innerHTML += productCard;
+            });
+        }
+    </script>
+</body>
+</html>
